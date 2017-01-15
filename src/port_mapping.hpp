@@ -11,8 +11,8 @@ namespace Ports {
 					   RIGHT_FRONT_MOTOR = 4,
 					   RIGHT_MIDDLE_MOTOR = 5,
 					   RIGHT_REAR_MOTOR = 6;
-		const uint32_t SHOOTER_1 = 7,
-					   SHOOTER_2 = 8;
+		const uint32_t LEFT_SHOOTER_MOTOR = 7,
+					   RIGHT_SHOOTER_MOTOR = 18;
 	}
 
 }
