@@ -7,7 +7,7 @@ Xbox_Controller::Xbox_Controller(uint32_t port) :
 	B( new JoystickButton(controller, 2) ),
 	X( new JoystickButton(controller, 3) ),
 	Y( new JoystickButton(controller, 4) ),
-	LEFT_BUMPER(new JoystickButton(controller, 5) ),
+	LEFT_BUMPER( new JoystickButton(controller, 5) ),
 	RIGHT_BUMPER( new JoystickButton(controller, 6) ),
 	BACK( new JoystickButton(controller, 7) ),
 	START( new JoystickButton(controller, 8) ),

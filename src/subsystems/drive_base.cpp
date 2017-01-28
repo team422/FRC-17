@@ -21,7 +21,7 @@ void Drive_Base::InitDefaultCommand() {
 
 void Drive_Base::set_motors_normalized(float left_speed, float right_speed) {
 	float left = constrain(left_speed);
-	float right = constrain(right_speed);
+	float right = -constrain(right_speed);
 	left_front_motor->Set(left);
 	left_middle_motor->Set(left);
 	left_rear_motor->Set(left);

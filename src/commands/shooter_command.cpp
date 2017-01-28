@@ -2,23 +2,20 @@
 #include "../subsystems/subsystems.hpp"
 
 Shooter_Command::Shooter_Command() {
-	Requires(Subsystems::shooter);
+	Requires(Subsystems::shooter_bottom);
 }
 
 void Shooter_Command::Execute() {
-	Subsystems::shooter->continue_motors();
+	Subsystems::shooter_bottom->continue_motor();
 }
 
 bool Shooter_Command::IsFinished() {
 	return false;
 }
 
-void Shooter_Command::End() {
-	Subsystems::shooter->set_left_speed(0);
-	Subsystems::shooter->set_right_speed(0);
+void Shooter_Command::Interrupted() {
 }
 
-void Shooter_Command::Interrupted() {
-	Subsystems::shooter->set_left_speed(0);
-	Subsystems::shooter->set_right_speed(0);
+void Shooter_Command::End() {
+	Subsystems::shooter_bottom->set_bottom_speed(0);
 }
