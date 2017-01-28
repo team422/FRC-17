@@ -1,14 +1,12 @@
 #pragma once
 
 #include "drive_base.hpp"
-#include "subsystems/shooter_top.hpp"
-#include "subsystems/shooter_bottom.hpp"
+#include "subsystems/shooter.hpp"
 
 namespace Subsystems {
 
 	extern Drive_Base * drive_base;
-	extern Shooter_Top * shooter_top;
-	extern Shooter_Bottom * shooter_bottom;
+	extern Shooter * shooter;
 	void initialize();
 
 }
