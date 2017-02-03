@@ -5,16 +5,14 @@
 namespace Ports {
 
 	namespace CANBusIDs {
-	//40 should be 44, changed for testing
+
 		const uint32_t
-					   //Change back to 44
-					   LEFT_FRONT_MOTOR = 1,
-					   //Change back to 46
+					   LEFT_FRONT_MOTOR = 41,
 					   LEFT_MIDDLE_MOTOR = 46,
-					   LEFT_REAR_MOTOR = 2,
-					   RIGHT_FRONT_MOTOR = 14,
-					   RIGHT_MIDDLE_MOTOR = 13,
-					   RIGHT_REAR_MOTOR = 39;
+					   LEFT_REAR_MOTOR = 42,
+					   RIGHT_FRONT_MOTOR = 39,
+					   RIGHT_MIDDLE_MOTOR = 44,
+					   RIGHT_REAR_MOTOR = 43;
 		const uint32_t TOP_SHOOTER_MOTOR = 42,
 					   BOTTOM_SHOOTER_MOTOR = 41;
 	}

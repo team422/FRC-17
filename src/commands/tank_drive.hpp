@@ -10,4 +10,6 @@ public:
 	bool IsFinished();
 	void End() {};
 	void Interrupted() {};
+private:
+	bool is_doubled;
 };

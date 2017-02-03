@@ -2,6 +2,7 @@
 #include "../commands/tank_drive.hpp"
 #include "../port_mapping.hpp"
 
+#include <CANTalon.h>
 #include <WPILib.h>
 
 Drive_Base::Drive_Base() :
