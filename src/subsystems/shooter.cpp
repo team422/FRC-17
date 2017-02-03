@@ -1,4 +1,6 @@
 #include "shooter.hpp"
+
+#include <CANTalon.h>
 #include <WPILib.h>
 
 #include "../commands/shooter_command.hpp"
