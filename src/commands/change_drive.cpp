@@ -4,20 +4,13 @@
 
 #include <WPILib.h>
 
-Change_Drive::Change_Drive(const std::string & new_drive) :
-drive_type (new_drive) {}
+Change_Drive::Change_Drive(const int & new_drive) :
+drive_type (new_drive) {
+	Requires(Subsystems::drive_base);
+}
 
 void Change_Drive::Initialize() {
-	if (drive_type == "joydrive") {
-		Subsystems::is_joydrive = true;
-		Subsystems::is_compdrive = false;
-	} else if (drive_type == "compdrive") {
-		Subsystems::is_compdrive = true;
-		Subsystems::is_joydrive = false;
-	} else {
-		Subsystems::is_joydrive = false;
-		Subsystems::is_joydrive = false;
-	}
+	Subsystems::drive_base->set_drive_type(drive_type);
 }
 
 bool Change_Drive::IsFinished() {

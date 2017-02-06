@@ -11,5 +11,5 @@ public:
 	void End() {};
 	void Interrupted() {};
 private:
-	bool is_doubled;
+	const bool IS_DOUBLED;
 };

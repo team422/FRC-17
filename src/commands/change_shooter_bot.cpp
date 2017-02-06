@@ -1,4 +1,4 @@
-#include "commands/change_shooter_bot.hpp"
+#include "./change_shooter_bot.hpp"
 #include "../subsystems/subsystems.hpp"
 
 /*

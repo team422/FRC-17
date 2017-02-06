@@ -50,16 +50,16 @@ void UI::initialize() {
 	Primary_Driver::increase_top_shooter_half_speed->WhenPressed(new Change_Shooter_Top_Speed(0.5, false));
 	Primary_Driver::stop_bottom_shooter->WhenPressed(new Change_Shooter_Bottom_Speed(0, true));
 	Primary_Driver::stop_top_shooter->WhenPressed(new Change_Shooter_Top_Speed(0, true));
-	Primary_Driver::change_joydrive->WhenPressed(new Change_Drive("joydrive"));
-	Primary_Driver::change_joydrive->WhenReleased(new Change_Drive("tankdrive"));
+	Primary_Driver::change_joydrive->WhenPressed(new Change_Drive(2));	//Single joystick
+	Primary_Driver::change_joydrive->WhenReleased(new Change_Drive(1));	//Tank drive
 
 	Secondary_Driver::controller = new Xbox_Controller(0);
 	Secondary_Driver::launchpad = new Launchpad(1);
 
-	Secondary_Driver::launchpad->PANEL_TOP_LEFT->WhenPressed(new Change_Drive("joydrive"));
-	Secondary_Driver::launchpad->PANEL_TOP_LEFT->WhenReleased(new Change_Drive("tankdrive"));
-	Secondary_Driver::launchpad->PANEL_TOP_MID->WhenPressed(new Change_Drive("compdrive"));
-	Secondary_Driver::launchpad->PANEL_TOP_MID->WhenReleased(new Change_Drive("tankdrive"));
+	Secondary_Driver::launchpad->PANEL_TOP_LEFT->WhenPressed(new Change_Drive(2)); 	//Single Joystick
+	Secondary_Driver::launchpad->PANEL_TOP_LEFT->WhenReleased(new Change_Drive(1));	//Tank drive
+//Secondary_Driver::launchpad->PANEL_TOP_MID->WhenPressed(new Change_Drive(3));		//Comp drive (multi joystick)
+	Secondary_Driver::launchpad->PANEL_TOP_MID->WhenReleased(new Change_Drive(1));	//Tank drive
 
 
 }

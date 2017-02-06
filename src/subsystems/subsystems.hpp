@@ -9,7 +9,4 @@ namespace Subsystems {
 	extern Shooter * shooter;
 	void initialize();
 
-	extern bool is_joydrive;
-	extern bool is_compdrive;
-
 }
