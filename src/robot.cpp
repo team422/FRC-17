@@ -7,6 +7,7 @@
 void Robot::RobotInit() {
 	Subsystems::initialize();
 	UI::initialize();
+	CameraServer::GetInstance()->StartAutomaticCapture();
 	//autonomous = new Autonomous();
 }
 
@@ -32,6 +33,10 @@ void Robot::TeleopPeriodic() {
 
 void Robot::TestInit() {
 
+}
+
+void Robot::TestPeriodic() {
+	Scheduler::GetInstance()->Run();
 }
 
 START_ROBOT_CLASS(Robot);

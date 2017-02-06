@@ -1,5 +1,6 @@
-#include <commands/change_shooter_bot.hpp>
-#include <commands/change_shooter_top.hpp>
+#include "commands/change_shooter_bot.hpp"
+#include "commands/change_shooter_top.hpp"
+#include "commands/launchpad_test.hpp"
 #include "user_interface.hpp"
 #include <WPILib.h>
 
@@ -49,4 +50,9 @@ void UI::initialize() {
 
 	Secondary_Driver::controller = new Xbox_Controller(0);
 	Secondary_Driver::launchpad = new Launchpad(1);
+
+	Secondary_Driver::launchpad->SWITCH_4->WhenPressed(new Launchpad_Test(0));
+	Secondary_Driver::launchpad->LARGE_GREEN_1->WhenPressed(new Launchpad_Test(1));
+	Secondary_Driver::launchpad->LARGE_GREEN_2->WhenPressed(new Launchpad_Test(2));
+	Secondary_Driver::launchpad->LARGE_SWITCH->WhenPressed(new Launchpad_Test(3));
 }

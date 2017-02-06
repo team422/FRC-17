@@ -2,8 +2,6 @@
 #include "../subsystems/subsystems.hpp"
 #include "../user_interface.hpp"
 
-#include <WPILib.h>
-
 Tank_Drive::Tank_Drive() {
 	Requires(Subsystems::drive_base);
 }
@@ -17,4 +15,8 @@ void Tank_Drive::Execute() {
 
 bool Tank_Drive::IsFinished() {
 	return false;
+}
+
+void Tank_Drive::End() {
+	Subsystems::drive_base->set_motors_normalized(0, 0);
 }

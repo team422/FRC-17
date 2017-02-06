@@ -5,8 +5,9 @@ Shooter_Command::Shooter_Command() {
 	Requires(Subsystems::shooter);
 }
 
-void Shooter_Command::Execute() {
-	Subsystems::shooter->continue_motor();
+void Shooter_Command::Initialize() {
+	Subsystems::shooter->set_top_speed(0);
+	Subsystems::shooter->set_bot_speed(0);
 }
 
 bool Shooter_Command::IsFinished() {

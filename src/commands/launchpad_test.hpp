@@ -2,14 +2,14 @@
 
 #include <WPILib.h>
 
-class Shooter_Command : public Command {
+class Launchpad_Test : public Command {
 public:
-	Shooter_Command();
+	Launchpad_Test(int button);
 	void Initialize();
 	void Execute() {};
 	bool IsFinished();
 	void Interrupted() {};
-	void End();
+	void End() {};
+private:
+	int button;
 };
-
-
