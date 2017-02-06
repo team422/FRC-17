@@ -12,11 +12,14 @@ Select_Drive::Select_Drive() {
 
 void Select_Drive::Initialize() {
   switch(Subsystems::drive_base->get_drive_type()) {
-    case 1: Scheduler::Schedule( new Tank_Drive() );
+    case 1: tank_drive = new Tank_Drive();
+            tank_drive.Schedule();
             break;
-    case 2: Scheduler::Schedule( new Single_Joystick() );
+    case 2: single_joystick = new Single_Joystick();
+            single_joystick.Schedule();
             break;
-//  case 3: Scheduler::Schedule( new Multi_Joystick() );
+//  case 3: multi_joystick = new Multi_Joystick();
+//          multi_joystick.Schedule();
 //          break;
   }
 }
