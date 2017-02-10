@@ -8,6 +8,8 @@ public:
 	void Initialize() {};
 	void Execute();
 	bool IsFinished();
+	void End() {};
 	void Interrupted() {};
-	void End();
+private:
+	const bool IS_DOUBLED;
 };
