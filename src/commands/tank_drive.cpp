@@ -3,7 +3,6 @@
 #include "../user_interface.hpp"
 
 #include <WPILib.h>
-//#include <math.h> - can use fabs if math.h is usable
 
 Tank_Drive::Tank_Drive() :
 IS_DOUBLED(false) {
