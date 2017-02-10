@@ -8,7 +8,6 @@ namespace UI {
 	namespace Primary_Driver {
 		extern Joystick	*left_stick,
 								*right_stick;
-
 		extern JoystickButton	*decrease_bottom_shooter_speed,
 								*decrease_bottom_shooter_half_speed,
 								*increase_bottom_shooter_speed,
@@ -18,7 +17,8 @@ namespace UI {
 								*increase_top_shooter_speed,
 								*increase_top_shooter_half_speed,
 								*stop_bottom_shooter,
-								*stop_top_shooter;
+								*stop_top_shooter,
+								*change_joydrive;
 	}
 
 	namespace Secondary_Driver {

@@ -18,7 +18,7 @@ Launchpad::Launchpad(uint32_t port) :
 	PANEL_3_1( new JoystickButton(launchpad, 3) ),
 	PANEL_3_2( new JoystickButton(launchpad, 6) ),
 	PANEL_3_3( new JoystickButton(launchpad, 9) ),
-  	PANEL_3_4( new JoystickButton(launchpad, 12) ),
+	PANEL_3_4( new JoystickButton(launchpad, 12) ),
 	SWITCH_1 ( new JoystickButton(launchpad, 16)),
 	SWITCH_2 ( new JoystickButton(launchpad, 17)),
 	SWITCH_3 ( new JoystickButton(launchpad, 18)),
