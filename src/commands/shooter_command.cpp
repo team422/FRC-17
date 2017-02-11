@@ -5,9 +5,11 @@ Shooter_Command::Shooter_Command() {
 	Requires(Subsystems::shooter);
 }
 
-void Shooter_Command::Initialize() {
-	Subsystems::shooter->set_top_speed(0);
-	Subsystems::shooter->set_bot_speed(0);
+void Shooter_Command::Initialize() {}
+
+void Shooter_Command::Execute() {
+	printf("Top Speed: %f\n", Subsystems::shooter->get_top_speed());
+	printf("Bottom Speed: %f\n", Subsystems::shooter->get_bot_speed());
 }
 
 bool Shooter_Command::IsFinished() {
