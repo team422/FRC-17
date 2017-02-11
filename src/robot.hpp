@@ -1,5 +1,7 @@
 #pragma once
 
+#include "commands/autonomous.hpp"
+
 #include <WPILib.h>
 
 class Robot : public IterativeRobot {
@@ -11,9 +13,8 @@ public:
 	void TeleopInit();
 	void TeleopPeriodic();
 	void TestInit();
-	void TestPeriodic();
 private:
-//	Autonomous *autonomous;
+	Autonomous *autonomous;
 };
 
 

@@ -6,9 +6,13 @@
 Shooter::Shooter() :
 	Subsystem("Shooter"),
 	top_motor(new CANTalon(Ports::CANBusIDs::TOP_SHOOTER_MOTOR)),
-	bot_motor(new CANTalon(Ports::CANBusIDs::BOTTOM_SHOOTER_MOTOR)) {
+	bot_motor(new CANTalon(Ports::CANBusIDs::BOTTOM_SHOOTER_MOTOR)),
+	top_speed (0),
+	bot_speed (0) {
 
 	setup_speed_mode();
+	set_top_speed(15000);
+	set_bot_speed(4500);
 }
 
 void Shooter::InitDefaultCommand() {
@@ -51,21 +55,31 @@ void Shooter::setup_speed_mode() {
 }
 
 float Shooter::get_bot_speed() {
-	float speed_ticks = bot_motor->Get();
-	return to_percent(speed_ticks);
+	return bot_motor->GetSpeed();
+}
+
+float Shooter::get_ideal_bot_speed() {
+	return bot_speed;
 }
 
 float Shooter::get_top_speed() {
-	float speed_ticks = top_motor->Get();
-	return to_percent(speed_ticks);
+	return top_motor->GetSpeed();
+}
+
+float Shooter::get_ideal_top_speed() {
+	return top_speed;
 }
 
 void Shooter::set_bot_speed(float input) {
-	bot_motor->Set(to_ticks(input));
+	bot_speed = input;
+	printf("Bottom Speed: %f\n", bot_speed);
+	bot_motor->Set(bot_speed); //to_ticks(input)
 }
 
 void Shooter::set_top_speed(float input) {
-	top_motor->Set(to_ticks(input));
+	top_speed = input;
+	printf("Top Speed: %f\n", top_speed);
+	top_motor->Set(top_speed); //to_ticks(input)
 }
 
 void Shooter::reset_encoders() {
@@ -81,12 +95,4 @@ float Shooter::constrain(float input) {
 	}
 
 	return input;
-}
-
-int Shooter::to_ticks(float percent) {
-	return (percent*max_speed*128)/(60*1000*10);
-}
-
-float Shooter::to_percent(float ticks) {
-	return (ticks*60*1000*10)/(max_speed*128);
 }
