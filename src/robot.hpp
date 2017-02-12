@@ -15,6 +15,7 @@ public:
 	void TestInit();
 private:
 	Autonomous *autonomous;
+//	frc::SendableChooser<frc::Command*> chooser;
 };
 
 
