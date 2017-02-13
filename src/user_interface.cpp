@@ -1,6 +1,7 @@
 #include "commands/change_shooter_bot.hpp"
 #include "commands/change_shooter_top.hpp"
 #include "commands/launchpad_test.hpp"
+#include "commands/set_gear_intake.hpp"
 #include "user_interface.hpp"
 #include <WPILib.h>
 
@@ -49,6 +50,9 @@ void UI::initialize() {
 	Primary_Driver::stop_top_shooter->WhenPressed(new Change_Shooter_Top_Speed(0, true));
 
 	Secondary_Driver::controller = new Xbox_Controller(0);
+
+	Secondary_Driver::controller->A->WhenPressed(new Set_Gear_Intake());
+
 	Secondary_Driver::launchpad = new Launchpad(1);
 
 	Secondary_Driver::launchpad->SWITCH_4->WhenPressed(new Launchpad_Test(0));

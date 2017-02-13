@@ -25,5 +25,16 @@ namespace Ports {
 	namespace Relays {
 		const uint32_t COMPRESSOR = 0;
 }
+	namespace Solenoids {
+		const uint32_t
+						GEAR_INTAKE_IN = 7,
+						GEAR_INTAKE_OUT = 0,
+						BALL_INTAKE_IN = 6,
+						BALL_INTAKE_OUT = 1;
+
+
+
+
+	}
 
 }

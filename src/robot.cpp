@@ -1,6 +1,7 @@
 #include "robot.hpp"
 #include "user_interface.hpp"
 #include "subsystems/subsystems.hpp"
+#include "commands/autonomous.hpp"
 #include <WPILib.h>
 
 
@@ -8,7 +9,7 @@ void Robot::RobotInit() {
 	Subsystems::initialize();
 	UI::initialize();
 	CameraServer::GetInstance()->StartAutomaticCapture();
-	//autonomous = new Autonomous();
+	autonomous = new Autonomous();
 }
 
 void Robot::DisabledInit() {
@@ -16,7 +17,7 @@ void Robot::DisabledInit() {
 }
 
 void Robot::AutonomousInit() {
-	//autonomous->Start();
+	autonomous->Start();
 }
 
 void Robot::AutonomousPeriodic() {
@@ -24,7 +25,7 @@ void Robot::AutonomousPeriodic() {
 }
 
 void Robot::TeleopInit() {
-	//autonomous->Cancel();
+	autonomous->Cancel();
 }
 
 void Robot::TeleopPeriodic() {
