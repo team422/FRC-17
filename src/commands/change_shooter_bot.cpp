@@ -1,4 +1,4 @@
-#include <commands/change_shooter_bot.hpp>
+#include "./change_shooter_bot.hpp"
 #include "../subsystems/subsystems.hpp"
 
 /*
@@ -19,9 +19,14 @@ void Change_Shooter_Bottom_Speed::Initialize() {
 	if (stop) {
 		Subsystems::shooter->set_bot_speed(0);
 	} else {
+<<<<<<< HEAD
 		float new_speed = Subsystems::shooter->get_ideal_bot_speed() + (direction * 1000);
 		Subsystems::shooter->set_bot_speed(new_speed);
 		printf("Bottom speed set to %f", new_speed);
+=======
+		float new_speed = Subsystems::shooter->get_bot_speed() + (direction * .1);
+		Subsystems::shooter->set_bot_speed(new_speed);
+>>>>>>> origin/feat/autonomous
 	}
 }
 

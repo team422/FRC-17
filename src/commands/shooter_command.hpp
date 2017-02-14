@@ -8,8 +8,8 @@ public:
 	void Initialize();
 	void Execute();
 	bool IsFinished();
-	void Interrupted() {};
 	void End();
+	void Interrupted() {};
 };
 
 
