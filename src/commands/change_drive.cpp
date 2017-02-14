@@ -7,7 +7,7 @@
 Change_Drive::Change_Drive(const int & new_drive) :
 drive_type (new_drive) {
 	Requires(Subsystems::drive_base);
-	printf("Change drive initialized with value of: " + new_drive);
+	printf("Change drive initialized with value of: %d", new_drive);
 }
 
 void Change_Drive::Initialize() {

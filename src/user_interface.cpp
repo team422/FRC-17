@@ -1,5 +1,5 @@
-#include "commands/change_shooter_bot.hpp"
 #include "commands/change_shooter_top.hpp"
+#include "commands/change_shooter_bot.hpp"
 #include "commands/change_drive.hpp"
 #include "user_interface.hpp"
 
@@ -56,10 +56,10 @@ void UI::initialize() {
 	Secondary_Driver::controller = new Xbox_Controller(0);
 	Secondary_Driver::launchpad = new Launchpad(1);
 
-//	Secondary_Driver::launchpad->PANEL_TOP_LEFT->WhenPressed(new Change_Drive(2)); 	//Single Joystick
-//	Secondary_Driver::launchpad->PANEL_TOP_LEFT->WhenReleased(new Change_Drive(1));	//Tank drive
-////Secondary_Driver::launchpad->PANEL_TOP_MID->WhenPressed(new Change_Drive(3));		//Comp drive (multi joystick)
-//	Secondary_Driver::launchpad->PANEL_TOP_MID->WhenReleased(new Change_Drive(1));	//Tank drive
+	Secondary_Driver::launchpad->PANEL_1_1->WhenPressed(new Change_Drive(2)); 	//Single Joystick
+	Secondary_Driver::launchpad->PANEL_1_1->WhenReleased(new Change_Drive(1));	//Tank drive
+//Secondary_Driver::launchpad->PANEL_TOP_MID->WhenPressed(new Change_Drive(3));		//Comp drive (multi joystick)
+	Secondary_Driver::launchpad->PANEL_1_2->WhenReleased(new Change_Drive(1));	//Tank drive
 
 
 }

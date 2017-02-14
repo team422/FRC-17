@@ -3,7 +3,6 @@
 #include "../user_interface.hpp"
 
 #include <WPILib.h>
-//#include <math.h> - can use fabs if math.h is usable
 
 Tank_Drive::Tank_Drive() :
 IS_DOUBLED(false) {
@@ -11,7 +10,6 @@ IS_DOUBLED(false) {
 }
 
 void Tank_Drive::Execute() {
-	printf("Tank drive running");
   float left_power_scaled = UI::Primary_Driver::left_stick->GetY();
 	float right_power_scaled = UI::Primary_Driver::right_stick->GetY();
 

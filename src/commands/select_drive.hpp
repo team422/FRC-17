@@ -4,7 +4,6 @@
 
 #include "tank_drive.hpp"
 #include "single_joystick.hpp"
-
 class Select_Drive : public Command {
 public:
   Select_Drive();
@@ -13,7 +12,6 @@ public:
   bool IsFinished();
   void Interrupted() {};
   void End() {};
-
 private:
   Tank_Drive * tank_drive;
   Single_Joystick * single_joystick;

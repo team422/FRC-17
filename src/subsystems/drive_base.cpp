@@ -1,6 +1,7 @@
 #include "drive_base.hpp"
 #include "../commands/select_drive.hpp"
 #include "../port_mapping.hpp"
+#include "../commands/select_drive.hpp"
 
 #include <CANTalon.h>
 #include <WPILib.h>
