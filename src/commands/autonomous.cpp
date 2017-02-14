@@ -2,10 +2,12 @@
 #include "../launchpad.hpp"
 #include "../user_interface.hpp"
 #include "../subsystems/subsystems.hpp"
+#include "set_ball_intake.hpp"
 
 #include <WPILib.h>
 
 Autonomous::Autonomous() {
+	AddSequential( new Set_Ball_Intake());
 	//See autonomous diagram, or, if there isn't one, see trello for details on making one
 	if (UI::Secondary_Driver::launchpad->SWITCH_1->Get()) {
 		Subsystems::drive_base->setup_dist_mode();

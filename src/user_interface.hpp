@@ -22,7 +22,8 @@ namespace UI {
 	}
 
 	namespace Secondary_Driver {
-		extern Xbox_Controller *controller;
+		extern Xbox_Controller *controller,
+								*toggle_gear_intake;
 		extern Launchpad *launchpad;
 	}
 

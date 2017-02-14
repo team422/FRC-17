@@ -2,7 +2,7 @@
 
 #include <WPILib.h>
 
-class Autonomous : public Command {
+class Autonomous : public CommandGroup {
 public:
 	Autonomous();
 };
