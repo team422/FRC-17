@@ -12,4 +12,4 @@ public:
   void End() {};
 private:
   float scale_turn(float turn_value);
-}
+};

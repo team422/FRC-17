@@ -11,8 +11,8 @@ IS_DOUBLED(false) {
 
 
 void Tank_Drive::Execute() {
-  float left_power_scaled = UI::Primary_Driver::left_stick->GetY();
-	float right_power_scaled = UI::Primary_Driver::right_stick->GetY();
+  float left_power_scaled = UI::Primary_Driver::left_stick->get_y();
+	float right_power_scaled = UI::Primary_Driver::right_stick->get_y();
 
 	if(IS_DOUBLED) {
 		left_power_scaled *= 2;

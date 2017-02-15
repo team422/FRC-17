@@ -11,11 +11,7 @@ Shooter::Shooter() :
 	bot_speed (0) {
 
 	setup_speed_mode();
-<<<<<<< HEAD
 	set_top_speed(15000);
-=======
-	set_top_speed(15000);
->>>>>>> origin/feat/autonomous
 	set_bot_speed(4500);
 }
 
@@ -60,28 +56,14 @@ void Shooter::setup_speed_mode() {
 
 float Shooter::get_bot_speed() {
 	return bot_motor->GetSpeed();
-<<<<<<< HEAD
 }
 
 float Shooter::get_ideal_bot_speed() {
 	return bot_speed;
-=======
-}
-
-float Shooter::get_ideal_bot_speed() {
-	return bot_speed;
->>>>>>> origin/feat/autonomous
 }
 
 float Shooter::get_top_speed() {
 	return top_motor->GetSpeed();
-<<<<<<< HEAD
-=======
-}
-
-float Shooter::get_ideal_top_speed() {
-	return top_speed;
->>>>>>> origin/feat/autonomous
 }
 
 float Shooter::get_ideal_top_speed() {

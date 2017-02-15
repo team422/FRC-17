@@ -19,12 +19,12 @@ public:
 	Button * const PANEL_MID_RIGHT;
 	Button * const PANEL_BOTTOM_LEFT;
 	Button * const PANEL_BOTTOM_MID;
-//	Button * const PANEL_BOTTOM_RIGHT;
-//	Button * const PANEL_COLUMN_TOP;
-//	Button * const PANEL_COLUMN_MID;
-//	Button * const PANEL_COLUMN_BOTTOM;
-//	Button * const BIG_GREEN_LEFT;
-//	Button * const BIG_GREEN_RIGHT;
+	Button * const PANEL_BOTTOM_RIGHT;
+	Button * const PANEL_COLUMN_TOP;
+	Button * const PANEL_COLUMN_MID;
+	Button * const PANEL_COLUMN_BOTTOM;
+	Button * const BIG_GREEN_LEFT;
+	Button * const BIG_GREEN_RIGHT;
 	Button * const SWITCH_1;
 	Button * const SWITCH_2;
 	Button * const SWITCH_3;
