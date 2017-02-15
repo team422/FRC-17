@@ -2,15 +2,24 @@
 #include "../subsystems/subsystems.hpp"
 #include "../user_interface.hpp"
 
-Tank_Drive::Tank_Drive() {
+#include <WPILib.h>
+
+Tank_Drive::Tank_Drive() :
+IS_DOUBLED(false) {
 	Requires(Subsystems::drive_base);
 }
 
-void Tank_Drive::Execute() {
-	float left = UI::Primary_Driver::left_stick->get_y();
-	float right = UI::Primary_Driver::right_stick->get_y();
 
-	Subsystems::drive_base->set_motors_normalized(left, right);
+void Tank_Drive::Execute() {
+  float left_power_scaled = UI::Primary_Driver::left_stick->GetY();
+	float right_power_scaled = UI::Primary_Driver::right_stick->GetY();
+
+	if(IS_DOUBLED) {
+		left_power_scaled *= 2;
+		right_power_scaled *= 2;
+	}
+
+	Subsystems::drive_base->set_motors_normalized(left_power_scaled, right_power_scaled);
 }
 
 bool Tank_Drive::IsFinished() {

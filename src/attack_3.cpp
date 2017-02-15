@@ -6,7 +6,8 @@ Attack_3::Attack_3(uint32_t port) :
 	BUTTON_2 (new JoystickButton(joystick, 2)),
 	BUTTON_3 (new JoystickButton(joystick, 3)),
 	BUTTON_4 (new JoystickButton(joystick, 4)),
-	BUTTON_5 (new JoystickButton(joystick, 5)) {
+	BUTTON_5 (new JoystickButton(joystick, 5)),
+	BUTTON_6 (new JoystickButton(joystick, 6)) {
 
 }
 
