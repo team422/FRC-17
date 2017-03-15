@@ -7,24 +7,21 @@ class Drive_Base : public Subsystem {
 public:
 	Drive_Base();
 	void InitDefaultCommand();
-	void set_motors_normalized(float left_speed, float right_speed);
-	int get_drive_type();
-	void set_drive_type(int new_drive);
-	void setup_dist_mode();
-	float get_dist_left();
-	float get_dist_right();
+	void set_motors_normalized(float left, float right);
+	int get_left_encoder_position();
+	int get_right_encoder_position();
+	float get_left_encoder_speed();
+	float get_right_encoder_speed();
 	void reset_encoders();
-	void setPID_left(float P, float I, float D);
-	void setPID_right(float P, float I, float D);
-
-
+	float get_angle();
+	void reset_gyro();
 private:
-	CANTalon 	*left_front_motor,
+	CANTalon	*left_front_motor,
 				*left_middle_motor,
 				*left_rear_motor,
 				*right_front_motor,
 				*right_middle_motor,
 				*right_rear_motor;
-	int drive_type;
+	ADXRS450_Gyro *gyro;
 	float constrain(float input);
 };

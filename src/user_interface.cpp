@@ -1,42 +1,39 @@
-#include "commands/change_shooter_top.hpp"
-#include "commands/change_shooter_bot.hpp"
-#include "commands/change_drive.hpp"
-#include "commands/change_shooter_top.hpp"
-#include "commands/launchpad_test.hpp"
 #include "user_interface.hpp"
-#include <WPILib.h>
 
+#include "commands/toggle_roller.hpp"
+#include "commands/toggle_lift.hpp"
+#include "commands/toggle_shooter.hpp"
+#include "commands/toggle_climber.hpp"
+#include "commands/autonomous/turn.hpp"
+#include "commands/change_shooter_speed.hpp"
+#include "commands/set_ball_intake.hpp"
+#include "commands/set_gear_intake.hpp"
+#include "commands/autonomous/turn.hpp"
 
-Attack_3 *UI::Primary_Driver::left_stick = nullptr;
-Attack_3 *UI::Primary_Driver::right_stick = nullptr;
-
-Xbox_Controller *UI::Secondary_Driver::controller = nullptr;
-Launchpad *UI::Secondary_Driver::launchpad = nullptr;
+Attack_3 *UI::left_joystick = nullptr;
+Attack_3 *UI::right_joystick = nullptr;
+Launchpad *UI::launchpad = nullptr;
+Xbox_Controller *UI::controller = nullptr;
 
 void UI::initialize() {
-	Primary_Driver::left_stick = new Attack_3(3);
-	Primary_Driver::right_stick = new Attack_3(2);
+	left_joystick = new Attack_3(3);
+	right_joystick = new Attack_3(2);
+	launchpad = new Launchpad(1);
+	controller = new Xbox_Controller(0);
 
-	Primary_Driver::left_stick->BUTTON_2->WhenPressed(new Change_Shooter_Bottom_Speed(-1, false));
-	Primary_Driver::left_stick->BUTTON_4->WhenPressed(new Change_Shooter_Bottom_Speed(-0.5, false));
-	Primary_Driver::left_stick->BUTTON_3->WhenPressed(new Change_Shooter_Bottom_Speed(1, false));
-	Primary_Driver::left_stick->BUTTON_5->WhenPressed(new Change_Shooter_Bottom_Speed(0.5, false));
-	Primary_Driver::right_stick->BUTTON_2->WhenPressed(new Change_Shooter_Top_Speed(-1, false));
-	Primary_Driver::right_stick->BUTTON_4->WhenPressed(new Change_Shooter_Top_Speed(-0.5, false));
-	Primary_Driver::right_stick->BUTTON_3->WhenPressed(new Change_Shooter_Top_Speed(1, false));
-	Primary_Driver::right_stick->BUTTON_5->WhenPressed(new Change_Shooter_Top_Speed(0.5, false));
-	Primary_Driver::left_stick->TRIGGER->WhenPressed(new Change_Shooter_Bottom_Speed(0, true));
-	Primary_Driver::right_stick->TRIGGER->WhenPressed(new Change_Shooter_Top_Speed(0, true));
+	controller->B->WhenPressed(new Set_Gear_Intake(DoubleSolenoid::Value::kForward));
+	controller->A->WhenPressed(new Set_Gear_Intake(DoubleSolenoid::Value::kReverse));
+	controller->X->WhenPressed(new Set_Ball_Intake(DoubleSolenoid::Value::kForward));
+	controller->RIGHT_BUMPER->WhenPressed(new Toggle_Climber(true, true));
+	controller->RIGHT_BUMPER->WhenReleased(new Toggle_Climber(false, true));
+	controller->LEFT_BUMPER->WhenPressed(new Toggle_Climber(true, false));
+	controller->LEFT_BUMPER->WhenReleased(new Toggle_Climber(false, false));
+	launchpad->SWITCH_2->WhenPressed(new Toggle_Roller(true));
+	launchpad->SWITCH_2->WhenReleased(new Toggle_Roller(false));
+	launchpad->SWITCH_3->WhenPressed(new Toggle_Lift(true));
+	launchpad->SWITCH_3->WhenReleased(new Toggle_Lift(false));
+	launchpad->SWITCH_4->WhenPressed(new Toggle_Shooter(true));
+	launchpad->SWITCH_4->WhenReleased(new Toggle_Shooter(false));
 
-	Secondary_Driver::controller = new Xbox_Controller(0);
-	Secondary_Driver::launchpad = new Launchpad(1);
-
-	Secondary_Driver::launchpad->SWITCH_4->WhenPressed(new Launchpad_Test(0));
-	Secondary_Driver::launchpad->BIG_GREEN_LEFT->WhenPressed(new Launchpad_Test(1));
-	Secondary_Driver::launchpad->BIG_GREEN_RIGHT->WhenPressed(new Launchpad_Test(2));
-	Secondary_Driver::launchpad->BIG_SWITCH->WhenPressed(new Launchpad_Test(3));
-	Secondary_Driver::launchpad->PANEL_TOP_LEFT->WhenPressed(new Change_Drive(2)); 	//Single Joystick
-	Secondary_Driver::launchpad->PANEL_TOP_LEFT->WhenReleased(new Change_Drive(1));	//Tank drive
-	Secondary_Driver::launchpad->PANEL_TOP_MID->WhenPressed(new Change_Drive(3));		//Comp drive (multi joystick)
-	Secondary_Driver::launchpad->PANEL_TOP_MID->WhenReleased(new Change_Drive(1));	//Tank drive
+	launchpad->PANEL_TOP_MID->WhenPressed(new Set_Ball_Intake(DoubleSolenoid::Value::kReverse));
 }

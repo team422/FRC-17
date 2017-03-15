@@ -3,19 +3,12 @@
 #include "attack_3.hpp"
 #include "launchpad.hpp"
 #include "xbox_controller.hpp"
-#include <WPILib.h>
 
 namespace UI {
-	namespace Primary_Driver {
-		extern Attack_3	*left_stick,
-						*right_stick;
-	}
-
-	namespace Secondary_Driver {
-		extern Xbox_Controller *controller,
-								*toggle_gear_intake;
-		extern Launchpad *launchpad;
-	}
+	extern Attack_3 *left_joystick;
+	extern Attack_3 *right_joystick;
+	extern Launchpad *launchpad;
+	extern Xbox_Controller *controller;
 
 	void initialize();
 }

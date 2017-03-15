@@ -7,20 +7,16 @@ class Shooter : public Subsystem {
 public:
 	Shooter();
 	void InitDefaultCommand();
-	void setup_vbus_mode();
-	void setup_speed_mode();
+	void set_top_speed(float speed);
 	float get_top_speed();
-	float get_ideal_top_speed();
-	float get_bot_speed();
-	float get_ideal_bot_speed();
-	void set_top_speed(float input);
-	void set_bot_speed(float input);
-	void reset_encoders();
+	void set_bottom_speed(float speed);
+	float get_bottom_speed();
+	float get_top_encoder_speed();
+	float get_bottom_encoder_speed();
 private:
-	CANTalon *top_motor;
-	CANTalon *bot_motor;
+	CANTalon	*top_motor,
+				*bottom_motor;
 	float top_speed;
-	float bot_speed;
+	float bottom_speed;
 	float constrain(float input);
-	const float max_rpm = 18730;
 };

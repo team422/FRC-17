@@ -2,16 +2,16 @@
 
 #include <WPILib.h>
 
-class Set_Ball_Intake : public frc::Command {
+class Toggle_Roller : public frc::Command {
 public:
-	Set_Ball_Intake(DoubleSolenoid::Value value);
+	Toggle_Roller(bool is_on);
 	void Initialize();
 	void Execute() {};
 	bool IsFinished();
 	void Interrupted() {};
 	void End() {};
 private:
-	DoubleSolenoid::Value value;
+	bool is_on;
 };
 
 

@@ -1,16 +1,18 @@
 #pragma once
 
 #include <WPILib.h>
-#include <string>
 
-class Change_Drive : public Command {
+class Toggle_Climber : public frc::Command {
 public:
-	Change_Drive(const int & new_drive);
+	Toggle_Climber(bool on, bool half);
 	void Initialize();
 	void Execute() {};
-	void End() {};
 	bool IsFinished();
 	void Interrupted() {};
+	void End() {};
 private:
-	int drive_type;
+	bool on;
+	bool half;
 };
+
+

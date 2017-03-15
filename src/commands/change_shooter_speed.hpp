@@ -2,16 +2,16 @@
 
 #include <WPILib.h>
 
-class Set_Ball_Intake : public frc::Command {
+class Change_Shooter_Speed : public frc::Command {
 public:
-	Set_Ball_Intake(DoubleSolenoid::Value value);
+	Change_Shooter_Speed(bool stop, int side, float direction);
 	void Initialize();
 	void Execute() {};
 	bool IsFinished();
 	void Interrupted() {};
 	void End() {};
 private:
-	DoubleSolenoid::Value value;
+	bool stop;
+	int side;
+	float direction;
 };
-
-

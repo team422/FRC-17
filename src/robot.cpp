@@ -1,22 +1,17 @@
 #include "robot.hpp"
-#include "user_interface.hpp"
-#include "subsystems/subsystems.hpp"
-#include "commands/autonomous.hpp"
-#include <WPILib.h>
-#include <LiveWindow/LiveWindow.h>
-#include <SmartDashboard/SendableChooser.h>
-#include <SmartDashboard/SmartDashboard.h>
 
+#include "subsystems/subsystems.hpp"
+#include "user_interface.hpp"
 
 void Robot::RobotInit() {
-//	chooser.AddDefault("Default Auto", new Autonomous());
-//	chooser.AddObject("Left Gear", new LeftAutoCommand());
-//	chooser.AddObject("Center Gear", new CenterAutoCommand());
-//	chooser.AddObject("Right Gear", new RightAutoCommand());
-//	frc::SmartDashboard::PutData("Auto Modes", &chooser);
 	Subsystems::initialize();
 	UI::initialize();
-	//autonomous = new Autonomous();
+	autonomousChooser = SendableChooser<Command*>();
+	autonomousChooser.AddDefault("Center Autonomous", new Autonomous_Center());
+	autonomousChooser.AddObject("Baseline Autonomous", new Autonomous_Left());
+//	autonomousChooser.AddObject("Right Autonomous", new Autonomous_Right());
+	SmartDashboard::PutData("Autonomous Modes", &autonomousChooser);
+//	autonomous = new Autonomous_Center();
 	CameraServer::GetInstance()->StartAutomaticCapture();
 }
 
@@ -25,7 +20,13 @@ void Robot::DisabledInit() {
 }
 
 void Robot::AutonomousInit() {
-	autonomous->Start();
+	Subsystems::drive_base->reset_gyro();
+	Subsystems::drive_base->reset_encoders();
+//	autonomous->Start();
+	autonomous = (Command*) autonomousChooser.GetSelected();
+	if (autonomous != nullptr) {
+		autonomous->Start();
+	}
 }
 
 void Robot::AutonomousPeriodic() {
@@ -33,15 +34,15 @@ void Robot::AutonomousPeriodic() {
 }
 
 void Robot::TeleopInit() {
-	autonomous->Cancel();
+	if (autonomous != nullptr) {
+		autonomous->Cancel();
+	}
+	Subsystems::ball_intake->set_ball_intake(DoubleSolenoid::Value::kReverse);
 }
 
 void Robot::TeleopPeriodic() {
 	Scheduler::GetInstance()->Run();
-}
-
-void Robot::TestInit() {
-
+	printf("Gyro: %f\n", Subsystems::drive_base->get_angle());
 }
 
 START_ROBOT_CLASS(Robot);

@@ -5,9 +5,10 @@
 class Gear_Intake : public Subsystem {
 public:
 	Gear_Intake();
-	DoubleSolenoid::Value get_gear_intake();
-	void set_gear_intake(DoubleSolenoid::Value value);
-
+	void set_intake_value(DoubleSolenoid::Value value);
+	DoubleSolenoid::Value get_intake_value();
 private:
-	DoubleSolenoid *gear_intake;
+	DoubleSolenoid *intake_solenoid;
 };
+
+
