@@ -5,45 +5,45 @@
 
 Shooter::Shooter() :
 Subsystem ("Shooter"),
-top_motor (new CANTalon(Ports::CANBusIds::SHOOTER_TOP)),
-bottom_motor (new CANTalon(Ports::CANBusIds::SHOOTER_BOTTOM)),
-top_speed (0),
-bottom_speed (0) {
-	bottom_motor->SetInverted(true);
-	set_top_speed(0);
-	top_motor->ConfigEncoderCodesPerRev(12);
-	set_bottom_speed(0);
-	bottom_motor->ConfigEncoderCodesPerRev(12);
+back_motor (new CANTalon(Ports::CANBusIds::SHOOTER_TOP)),
+front_motor (new CANTalon(Ports::CANBusIds::SHOOTER_BOTTOM)),
+back_speed (0),
+front_motor (0) {
+	front_motor->SetInverted(true);
+	set_back_speed(0);
+	back_motor->ConfigEncoderCodesPerRev(12);
+	set_front_speed(0);
+	front_motor->ConfigEncoderCodesPerRev(12);
 }
 
 void Shooter::InitDefaultCommand() {
 	SetDefaultCommand(new Shooter_Command());
 }
 
-void Shooter::set_top_speed(float speed) {
-	top_speed = constrain(speed);
-	top_motor->Set(top_speed);
+void Shooter::set_back_speed(float speed) {
+	back_speed = constrain(speed);
+	back_motor->Set(back_speed);
 }
 
-float Shooter::get_top_speed() {
-	return top_speed;
+float Shooter::get_back_speed() {
+	return back_speed;
 }
 
-void Shooter::set_bottom_speed(float speed) {
-	bottom_speed = constrain(speed);
-	bottom_motor->Set(bottom_speed);
+void Shooter::set_front_speed(float speed) {
+	front_motor = constrain(speed);
+	front_motor->Set(front_motor);
 }
 
-float Shooter::get_bottom_speed() {
-	return bottom_speed;
+float Shooter::get_front_speed() {
+	return front_motor;
 }
 
-float Shooter::get_top_encoder_speed() {
-	return top_motor->GetSpeed();
+float Shooter::get_back_encoder_speed() {
+	return back_motor->GetSpeed();
 }
 
-float Shooter::get_bottom_encoder_speed() {
-	return bottom_motor->GetSpeed();
+float Shooter::get_front_encoder_speed() {
+	return front_motor->GetSpeed();
 }
 
 float Shooter::constrain(float input) {

@@ -11,19 +11,19 @@ direction (direction) {
 void Change_Shooter_Speed::Initialize() {
 	if (side == 0) {
 		if (stop)  {
-			Subsystems::shooter->set_bottom_speed(0);
+			Subsystems::shooter->set_front_speed(0);
 		} else {
-			float speed = Subsystems::shooter->get_bottom_speed();
+			float speed = Subsystems::shooter->get_front_speed();
 			speed += (direction * 0.1);
-			Subsystems::shooter->set_bottom_speed(speed);
+			Subsystems::shooter->set_front_speed(speed);
 		}
 	} else if (side == 1) {
 		if (stop) {
-			Subsystems::shooter->set_top_speed(0);
+			Subsystems::shooter->set_back_speed(0);
 		} else {
-			float speed = Subsystems::shooter->get_top_speed();
+			float speed = Subsystems::shooter->get_back_speed();
 			speed += (direction * 0.1);
-			Subsystems::shooter->set_top_speed(speed);
+			Subsystems::shooter->set_back_speed(speed);
 		}
 	}
 }

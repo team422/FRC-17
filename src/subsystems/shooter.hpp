@@ -7,16 +7,16 @@ class Shooter : public Subsystem {
 public:
 	Shooter();
 	void InitDefaultCommand();
-	void set_top_speed(float speed);
-	float get_top_speed();
-	void set_bottom_speed(float speed);
-	float get_bottom_speed();
-	float get_top_encoder_speed();
-	float get_bottom_encoder_speed();
+	void set_back_speed(float speed);
+	float get_back_speed();
+	void set_front_speed(float speed);
+	float get_front_speed();
+	float get_back_encoder_speed();
+	float get_front_encoder_speed();
 private:
-	CANTalon	*top_motor,
-				*bottom_motor;
-	float top_speed;
-	float bottom_speed;
+	CANTalon	*back_motor,
+				*front_motor;
+	float back_speed;
+	float front_motor;
 	float constrain(float input);
 };
